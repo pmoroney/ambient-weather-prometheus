@@ -10,8 +10,8 @@ RUN go mod download && go mod verify
 # Copy the rest of the source code
 COPY . ./
 
-# Build the Go binary
-RUN go build -v -o ambient-weather-prometheus
+# Build the Go binary from the cmd directory
+RUN go build -v -o ambient-weather-prometheus ./cmd/main.go
 
 # Stage 2: Create a minimal image with the compiled binary
 FROM debian:stable-slim
